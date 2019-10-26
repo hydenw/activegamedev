@@ -4,7 +4,16 @@ using UnityEngine;
 
 public abstract class FWState : MonoBehaviour
 {
-    protected Dictionary<FWStateManager.StateTransitions, FWStateManager.RangedStates> StateDict = new Dictionary<FWStateManager.StateTransitions, FWStateManager.RangedStates>();
+    protected Dictionary<FWStateManager.StateTransitions, FWStateManager.NPCStates> StateDict = new Dictionary<FWStateManager.StateTransitions, FWStateManager.NPCStates>();
+
+    protected FWStateManager.NPCStates npcState;
+
+    public FWStateManager.NPCStates NpcState
+    {
+        get => npcState;
+        set => npcState = value;
+    }
+
     // Start is called before the first frame update
     void Start()
     {

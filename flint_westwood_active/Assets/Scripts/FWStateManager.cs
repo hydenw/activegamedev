@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FWStateManager : MonoBehaviour
 {
-    private RangedStates currentRangedState;
+    private NPCStates _currentNpcState;
     private FWStateMachine activeStateMachine;
 
     public FWStateMachine ActiveStateMachine
@@ -13,12 +13,12 @@ public class FWStateManager : MonoBehaviour
     }
 
 
-    public RangedStates CurrentRangedState
+    public NPCStates CurrentNpcState
     {
-        get => currentRangedState; 
+        get => _currentNpcState; 
     }
 
-    public enum RangedStates
+    public enum NPCStates
     {
         Patrol, Track, Interact, Attack, Flee
     }

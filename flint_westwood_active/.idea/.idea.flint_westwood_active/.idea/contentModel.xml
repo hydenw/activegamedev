@@ -6,6 +6,10 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="Data" t="Include">
+            <e p="Enums" t="Include">
+              <e p="NPCState.cs" t="Include" />
+              <e p="NPCStateTransition.cs" t="Include" />
+            </e>
             <e p="Waypoint.cs" t="Include" />
           </e>
           <e p="FWRangedNPCState.cs" t="Include" />

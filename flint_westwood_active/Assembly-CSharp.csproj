@@ -56,6 +56,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Data\Enums\NPCState.cs" />
+     <Compile Include="Assets\Scripts\Data\Enums\NPCStateTransition.cs" />
      <Compile Include="Assets\Scripts\Data\Waypoint.cs" />
      <Compile Include="Assets\Scripts\FWRangedNPCState.cs" />
      <Compile Include="Assets\Scripts\FWState.cs" />

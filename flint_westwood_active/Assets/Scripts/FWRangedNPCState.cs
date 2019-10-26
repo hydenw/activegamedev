@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FWRangedNPCState : FWStateMachine
 {
-    private FWStateManager.RangedStates currentState;
+    private FWStateManager.NPCStates currentState;
     private FWStateManager _stateManager;
 
     public GameObject[] _waypoints = new GameObject[25];
@@ -19,7 +19,7 @@ public class FWRangedNPCState : FWStateMachine
     protected override void InitializeState()
     {
         moveSpeed = 2f;
-        this.currentState = FWStateManager.RangedStates.Patrol;
+        this.currentState = FWStateManager.NPCStates.Patrol;
 //        for (int i = 0; i < _waypoints.Length; i++)
 //        {
 //            _waypoints[i] = new GameObject();
@@ -37,7 +37,7 @@ public class FWRangedNPCState : FWStateMachine
     {
         switch (currentState)
         {
-            case FWStateManager.RangedStates.Patrol:
+            case FWStateManager.NPCStates.Patrol:
                 UpdatePatrol();
                 break;
             default:
@@ -64,11 +64,11 @@ public class FWRangedNPCState : FWStateMachine
 
         if (distanceFromPlayer <= 50.0f)
         {
-            currentState = FWStateManager.RangedStates.Track;
+            currentState = FWStateManager.NPCStates.Track;
             
         } else if (distanceFromPlayer >= 50.0f)
         {
-            currentState = FWStateManager.RangedStates.Patrol;
+            currentState = FWStateManager.NPCStates.Patrol;
         }
 
     }
