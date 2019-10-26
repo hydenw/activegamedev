@@ -4,11 +4,37 @@ using UnityEngine;
 
 public class FWStateManager : MonoBehaviour
 {
+    private RangedStates currentRangedState;
+    private FWStateMachine activeStateMachine;
+
+    public FWStateMachine ActiveStateMachine
+    {
+        get => activeStateMachine;
+    }
+
+
+    public RangedStates CurrentRangedState
+    {
+        get => currentRangedState; 
+    }
+
     public enum RangedStates
     {
-        PATROL, TRACK, INTERACT, ATTACK, FLEE
+        Patrol, Track, Interact, Attack, Flee
     }
-    // Start is called before the first frame update
+
+    public enum StateTransitions
+    {
+        None = 0,
+        SawPlayer,
+        TargetedPlayer,
+        LostPlayer,
+        Dead
+    }
+    
+    
+    
+    
     void Start()
     {
         

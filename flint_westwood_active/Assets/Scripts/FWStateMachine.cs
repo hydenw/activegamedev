@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class FWStateMachine : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
+    [SerializeField] protected GameObject player;
     private Transform _playerLocation;
 
     protected virtual void InitializeState()

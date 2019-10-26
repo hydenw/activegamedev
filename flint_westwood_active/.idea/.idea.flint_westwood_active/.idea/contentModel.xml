@@ -9,6 +9,7 @@
             <e p="Waypoint.cs" t="Include" />
           </e>
           <e p="FWRangedNPCState.cs" t="Include" />
+          <e p="FWState.cs" t="Include" />
           <e p="FWStateMachine.cs" t="Include" />
           <e p="FWStateManager.cs" t="Include" />
         </e>

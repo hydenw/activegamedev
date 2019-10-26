@@ -5,9 +5,11 @@ using UnityEngine;
 public class FWRangedNPCState : FWStateMachine
 {
     private FWStateManager.RangedStates currentState;
+    private FWStateManager _stateManager;
 
     public GameObject[] _waypoints = new GameObject[25];
     public Transform waypointHolder;
+    private float elapsedTime;
 
     public Vector3 velocity = Vector3.zero;
 
@@ -17,7 +19,7 @@ public class FWRangedNPCState : FWStateMachine
     protected override void InitializeState()
     {
         moveSpeed = 2f;
-        this.currentState = FWStateManager.RangedStates.PATROL;
+        this.currentState = FWStateManager.RangedStates.Patrol;
 //        for (int i = 0; i < _waypoints.Length; i++)
 //        {
 //            _waypoints[i] = new GameObject();
@@ -35,7 +37,7 @@ public class FWRangedNPCState : FWStateMachine
     {
         switch (currentState)
         {
-            case FWStateManager.RangedStates.PATROL:
+            case FWStateManager.RangedStates.Patrol:
                 UpdatePatrol();
                 break;
             default:
@@ -57,10 +59,16 @@ public class FWRangedNPCState : FWStateMachine
 
     private void DetectPlayer()
     {
-        RaycastHit2D hit;
-        if (Physics2D.OverlapCircle(transform.position, 10f))
+        Vector3 destination = player.transform.position;
+        float distanceFromPlayer = Vector3.Distance(transform.position, destination);
+
+        if (distanceFromPlayer <= 50.0f)
         {
+            currentState = FWStateManager.RangedStates.Track;
             
+        } else if (distanceFromPlayer >= 50.0f)
+        {
+            currentState = FWStateManager.RangedStates.Patrol;
         }
 
     }

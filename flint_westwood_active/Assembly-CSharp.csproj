@@ -58,6 +58,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Data\Waypoint.cs" />
      <Compile Include="Assets\Scripts\FWRangedNPCState.cs" />
+     <Compile Include="Assets\Scripts\FWState.cs" />
      <Compile Include="Assets\Scripts\FWStateMachine.cs" />
      <Compile Include="Assets\Scripts\FWStateManager.cs" />
  <Reference Include="Unity.Timeline.Editor">
