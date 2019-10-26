@@ -56,7 +56,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Data\Waypoint.cs" />
+     <Compile Include="Assets\Scripts\FWRangedNPCState.cs" />
      <Compile Include="Assets\Scripts\FWStateMachine.cs" />
+     <Compile Include="Assets\Scripts\FWStateManager.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/Users/hydenw/DevDesign/projects/activegamedev/flint_westwood_active/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
