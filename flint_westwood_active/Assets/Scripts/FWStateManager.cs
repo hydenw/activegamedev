@@ -2,47 +2,74 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FWStateManager : MonoBehaviour
+public class FWStateManager
 {
-    private NPCStates _currentNpcState;
-    private FWStateMachine activeStateMachine;
+    private List<FWState> _states;
 
-    public FWStateMachine ActiveStateMachine
+    public NPCState CurrentStateType { get; private set; }
+    public FWState CurrentState { get; private set; }
+
+    public FWStateManager()
     {
-        get => activeStateMachine;
+        this._states = new List<FWState>();
     }
 
-
-    public NPCStates CurrentNpcState
+    public void AddNewState(FWState newState)
     {
-        get => _currentNpcState; 
+        if (!FWStateUtility.IsValidState(newState)) return;
+        if (_states.Count == 0) // if there are no states, add state as first
+        {
+            InitializeState(newState);
+            return;
+        }
+
+        for (int i = 0; i < _states.Count; i++)
+        {
+            if (_states[i].NpcState == newState.NpcState)
+            {
+                Debug.LogError("The state being added already exists in the list");
+                return;
+            }
+        }
+
+        _states.Add(newState);
     }
 
-    public enum NPCStates
+    public void RemoveExistingState(NPCState stateToRemove)
     {
-        Patrol, Track, Interact, Attack, Flee
+        if (!FWStateUtility.IsValidNpcState(stateToRemove)) return;
+        for (int i = 0; i < _states.Count; i++)
+        {
+            if (_states[i].NpcState == stateToRemove)
+            {
+                _states.Remove(_states[i]);
+                return;
+            }
+        }
     }
 
-    public enum StateTransitions
+    public void HandleTransition(NPCStateTransition transitionType)
     {
-        None = 0,
-        SawPlayer,
-        TargetedPlayer,
-        LostPlayer,
-        Dead
-    }
-    
-    
-    
-    
-    void Start()
-    {
-        
+        if (!FWStateUtility.IsTransitionDefined(transitionType)) return;
+        NPCState newNpcState = CurrentState.GetStateFromTransition(transitionType);
+        if (!FWStateUtility.IsValidNpcState(newNpcState)) return;
+        CurrentStateType = newNpcState;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void InitializeState(FWState newState)
     {
-        
+        _states.Add(newState);
+        this.CurrentState = newState;
+        this.CurrentStateType = newState.NpcState;
+        for (int i = 0; i < _states.Count; i++)
+        {
+            if (_states[i].NpcState == CurrentStateType)
+            {
+                CurrentState.CleanupOldState();
+                CurrentState = _states[i];
+                CurrentState.InitializeNewState();
+                break;
+            }
+        }
     }
 }

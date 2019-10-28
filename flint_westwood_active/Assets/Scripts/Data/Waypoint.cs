@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Waypoint : MonoBehaviour
+[System.Serializable]
+public class Waypoint
 {
     public Vector2 _waypoint;
 

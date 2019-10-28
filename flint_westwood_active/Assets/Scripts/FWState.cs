@@ -2,30 +2,65 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class FWState : MonoBehaviour
+public abstract class FWState
 {
-    protected Dictionary<FWStateManager.StateTransitions, FWStateManager.NPCStates> StateDict = new Dictionary<FWStateManager.StateTransitions, FWStateManager.NPCStates>();
+    protected Dictionary<NPCStateTransition, NPCState>
+        StateTransitions = new Dictionary<NPCStateTransition, NPCState>();
 
-    protected FWStateManager.NPCStates npcState;
+    protected NPCState npcState;
 
-    public FWStateManager.NPCStates NpcState
+    public NPCState NpcState => npcState;
+
+    public void AddStateTransition(NPCStateTransition transitionType, NPCState newState)
     {
-        get => npcState;
-        set => npcState = value;
+        if (!FWStateUtility.IsTransitionDefined(transitionType) || !FWStateUtility.IsStateDefined(newState))
+            return; // can't be a non-existing state
+        // state can only move down a path, no single transition can map to multiple states (yet)
+
+        if (TransitionExists(transitionType)) return;
+        StateTransitions.Add(transitionType, newState);
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void RemoveStateTransition(NPCStateTransition transitionToRemove)
     {
-        
+        if (!FWStateUtility.IsTransitionDefined(transitionToRemove)) return;
+        RemoveTransitionFromDictionary(transitionToRemove);
     }
 
-    // Update is called once per frame
-    void Update()
+    public NPCState GetStateFromTransition(NPCStateTransition transitionType)
     {
-        
+        if (StateTransitions.ContainsKey(transitionType))
+            return StateTransitions[transitionType]; // if transition for the state exists
+        return NPCState.DefaultState; // otherwise return base state
     }
 
-    public abstract void ShouldStateChange(Transform player, Transform npc);
-    public abstract void ExecuteCurrentState(Transform player, Transform npc);
+
+    private void RemoveTransitionFromDictionary(NPCStateTransition transitionToRemove)
+    {
+        if (StateTransitions.ContainsKey(transitionToRemove))
+        {
+            StateTransitions.Remove(transitionToRemove);
+        }
+        else
+        {
+            Debug.LogError("Dictionary does not contain this transition, cannot remove..");
+        }
+    }
+
+    private bool TransitionExists(NPCStateTransition transitionType)
+    {
+        return StateTransitions.ContainsKey(transitionType);
+    }
+
+    public virtual void InitializeNewState()
+    {
+    }
+
+    public virtual void CleanupOldState()
+    {
+    }
+
+    public abstract void ShouldStateChange(GameObject player, GameObject currentNpc);
+
+    public abstract void ExecuteCurrentStateBehavior(GameObject player, GameObject currentNpc);
 }
