@@ -12,14 +12,16 @@ public class FWStateManager
     public FWStateManager()
     {
         this._states = new List<FWState>();
-    }
+    } 
 
     public void AddNewState(FWState newState)
     {
         if (!FWStateUtility.IsValidState(newState)) return;
         if (_states.Count == 0) // if there are no states, add state as first
         {
-            InitializeState(newState);
+            _states.Add(newState);
+            CurrentState = newState;
+            CurrentStateType = newState.NpcState;
             return;
         }
 
@@ -54,13 +56,7 @@ public class FWStateManager
         NPCState newNpcState = CurrentState.GetStateFromTransition(transitionType);
         if (!FWStateUtility.IsValidNpcState(newNpcState)) return;
         CurrentStateType = newNpcState;
-    }
-
-    private void InitializeState(FWState newState)
-    {
-        _states.Add(newState);
-        this.CurrentState = newState;
-        this.CurrentStateType = newState.NpcState;
+        
         for (int i = 0; i < _states.Count; i++)
         {
             if (_states[i].NpcState == CurrentStateType)
@@ -71,5 +67,13 @@ public class FWStateManager
                 break;
             }
         }
+    }
+
+    private void InitializeState(FWState newState)
+    {
+        _states.Add(newState);
+        this.CurrentState = newState;
+        this.CurrentStateType = newState.NpcState;
+        
     }
 }

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FWStateMachine : MonoBehaviour
+public class FWStateMachine : MonoBehaviour        
 {
     [SerializeField] protected GameObject player;
     private Transform _playerLocation;

@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Hyden\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Hyden\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_flint_westwood_active.-393887686.00" t="ExcludeRecursive" />
-    <e p="D:\DevDesign\Unity\sgd\flint_westwood_active\activegamedev\flint_westwood_active" t="IncludeRecursive">
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Editor" t="Include">
+          <e p="SaveOnRun.cs" t="Include" />
+        </e>
         <e p="Scripts" t="Include">
+          <e p="AttackPlayerState.cs" t="Include" />
+          <e p="Camera" t="Include">
+            <e p="CameraMovement.cs" t="Include" />
+          </e>
           <e p="Data" t="Include">
-            <e p="Enums" t="Include">
-              <e p="NPCState.cs" t="Include" />
-              <e p="NPCStateTransition.cs" t="Include" />
-            </e>
             <e p="Waypoint.cs" t="Include" />
+          </e>
+          <e p="Enums" t="Include">
+            <e p="NPCState.cs" t="Include" />
+            <e p="NPCStateTransition.cs" t="Include" />
           </e>
           <e p="FWRangedNPCState.cs" t="Include" />
           <e p="FWState.cs" t="Include" />
@@ -22,12 +28,30 @@
           <e p="FWStateUtility.cs" t="Include" />
           <e p="Patrol.cs" t="Include" />
           <e p="PatrolWaypointState.cs" t="Include" />
+          <e p="Player" t="Include">
+            <e p="PlayerMovementTesting.cs" t="Include" />
+            <e p="PlayerRotationController.cs" t="Include" />
+          </e>
+          <e p="PlayerShoot" t="Include">
+            <e p="BulletController.cs" t="Include" />
+            <e p="DrawFireLine.cs" t="Include" />
+            <e p="FirePointController.cs" t="Include" />
+            <e p="PlayerCombatController.cs" t="Include" />
+          </e>
+          <e p="Scriptable Objects" t="Include">
+            <e p="Weapons" t="Include">
+              <e p="Weapon.cs" t="Include" />
+            </e>
+          </e>
+          <e p="TargetPlayerState.cs" t="Include" />
         </e>
       </e>
       <e p="flint_westwood_active.sln" t="IncludeFlat" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
-      <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="Temp/bin" t="ExcludeRecursive" />
     </e>
+    <e p="$USER_HOME$/Library/Caches/Rider2019.2/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.2/resharper-host/local/Transient/ReSharperHost/v192/SolutionCaches/_flint_westwood_active.-1500807653.00" t="ExcludeRecursive" />
   </component>
 </project>

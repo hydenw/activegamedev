@@ -3,8 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class Waypoint
+public class Waypoint : MonoBehaviour
 {
     public Vector2 _waypoint;
 
@@ -13,5 +12,8 @@ public class Waypoint
         _waypoint = new Vector2(x, y);
     }
 
-
+    private void Start()
+    {
+        this._waypoint = transform.position;
+    }
 }
