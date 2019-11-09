@@ -1,18 +1,53 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WantedPoster : MonoBehaviour
+[RequireComponent(typeof(BoxCollider2D))]
+public class WantedPoster : MonoBehaviour, IInteractable
 {
-    // Start is called before the first frame update
+    [SerializeField] private string wantedName;
+    [SerializeField] private float wantedReward;
+    [SerializeField] private GameObject wantedNPC;
+    [SerializeField] private string wantedDescription;
+
+    private BoxCollider2D _posterCollider;
     void Start()
+    {
+        _posterCollider = GetComponent<BoxCollider2D>();
+        _posterCollider.isTrigger = true;
+    }
+
+    void Update()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Interact()
     {
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+//        Debug.Log("hello");
+//        if (other.gameObject.CompareTag("Player"))
+//        {
+//            if (Input.GetKeyDown(KeyCode.F))
+//            {
+//                Debug.Log("Interacting with Wanted Poster!");
+//            }
+//        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Debug.Log("Interacting with Wanted Poster!");
+            }
+        }
     }
 }

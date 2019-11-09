@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class HealthBar : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] Transform healthBarContainer;
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void SetHealthBar(float size)
+    {
+        healthBarContainer.localScale = new Vector3(size, 1f);
     }
 }

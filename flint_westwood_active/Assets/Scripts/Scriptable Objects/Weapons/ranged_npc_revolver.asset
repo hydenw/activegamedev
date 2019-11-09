@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c221e401db2701d4a96b169851df9ab7, type: 3}
   m_Name: ranged_npc_revolver
   m_EditorClassIdentifier: 
-  numBullets: 0
-  weaponRange: 0
+  numBullets: 6
+  weaponRange: 5

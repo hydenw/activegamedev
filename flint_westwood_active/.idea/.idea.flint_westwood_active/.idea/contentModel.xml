@@ -4,9 +4,13 @@
     <e p="C:\Users\Hyden\.Rider2019.2\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\Hyden\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_flint_westwood_active.-393887686.00" t="ExcludeRecursive" />
     <e p="D:\DevDesign\Unity\sgd\flint_westwood_active\activegamedev\flint_westwood_active" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
+          <e p="Camera" t="Include">
+            <e p="CameraController.cs" t="Include" />
+          </e>
           <e p="Data" t="Include">
             <e p="Enums" t="Include">
               <e p="NPCState.cs" t="Include" />
@@ -14,14 +18,48 @@
             </e>
             <e p="Waypoint.cs" t="Include" />
           </e>
-          <e p="FWRangedNPCState.cs" t="Include" />
-          <e p="FWState.cs" t="Include" />
-          <e p="FWStateController.cs" t="Include" />
-          <e p="FWStateMachine.cs" t="Include" />
-          <e p="FWStateManager.cs" t="Include" />
-          <e p="FWStateUtility.cs" t="Include" />
-          <e p="Patrol.cs" t="Include" />
-          <e p="PatrolWaypointState.cs" t="Include" />
+          <e p="Editor" t="Include">
+            <e p="SaveOnRun.cs" t="Include" />
+          </e>
+          <e p="Interactable" t="Include">
+            <e p="IInteractable.cs" t="Include" />
+            <e p="WantedPoster.cs" t="Include" />
+          </e>
+          <e p="NPC" t="Include">
+            <e p="State Management" t="Include">
+              <e p="FWState.cs" t="Include" />
+              <e p="FWStateController.cs" t="Include" />
+              <e p="FWStateMachine.cs" t="Include" />
+              <e p="FWStateManager.cs" t="Include" />
+              <e p="FWStateUtility.cs" t="Include" />
+            </e>
+            <e p="States" t="Include">
+              <e p="AttackPlayerState.cs" t="Include" />
+              <e p="PatrolWaypointState.cs" t="Include" />
+              <e p="TargetPlayerState.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Player" t="Include">
+            <e p="Player Combat" t="Include">
+              <e p="BulletController.cs" t="Include" />
+              <e p="DrawFireLine.cs" t="Include" />
+              <e p="FirePointController.cs" t="Include" />
+              <e p="PlayerCombatController.cs" t="Include" />
+            </e>
+            <e p="Player Control" t="Include">
+              <e p="PlayerMovementTesting.cs" t="Include" />
+              <e p="PlayerRotationController.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Scriptable Objects" t="Include">
+            <e p="Weapons" t="Include">
+              <e p="Weapon.cs" t="Include" />
+            </e>
+          </e>
+          <e p="UI" t="Include">
+            <e p="HealthBar.cs" t="Include" />
+            <e p="HealthBarTester.cs" t="Include" />
+          </e>
         </e>
       </e>
       <e p="flint_westwood_active.sln" t="IncludeFlat" />
